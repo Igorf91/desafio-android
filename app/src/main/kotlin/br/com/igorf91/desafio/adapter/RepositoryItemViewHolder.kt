@@ -2,6 +2,7 @@ package br.com.igorf91.desafio.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import br.com.igorf91.desafio.PullRequestActivity
 import br.com.igorf91.desafio.util.loadImage
 import br.com.igorf91.desafio.vo.RepositoryVO
 import kotlinx.android.synthetic.main.repository_list_item.view.repoDescriptionItemTextView
@@ -27,5 +28,9 @@ class RepositoryItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
         forks.text = item.forksCount.toString()
         stars.text = item.stargazersCount.toString()
         nickName.text = item.owner.login
+
+        itemView.setOnClickListener {
+            itemView.context.startActivity(PullRequestActivity(itemView.context))
+        }
     }
 }
