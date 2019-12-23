@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/repoNameItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/repoImageItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nome repositorio" />
+
+    <ImageView
+        android:id="@+id/repoImageItem"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/ic_image_placeholder" />
+
+    <TextView
+        android:id="@+id/repoDescriptionItemTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:maxLines="2"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/repoImageItem"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repoNameItemTextView"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/repoForkItemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/ic_octicons_repo_forked"
+        android:drawablePadding="8dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repoDescriptionItemTextView"
+        tools:text="640" />
+
+    <TextView
+        android:id="@+id/repoStarsItemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/ic_octicons_star"
+        android:drawablePadding="8dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/repoForkItemTextView"
+        app:layout_constraintTop_toBottomOf="@+id/repoDescriptionItemTextView"
+        tools:text="640" />
+
+    <TextView
+        android:id="@+id/repoNicknameItemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/repoImageItem"
+        app:layout_constraintStart_toStartOf="@+id/repoImageItem"
+        app:layout_constraintTop_toBottomOf="@+id/repoImageItem"
+        tools:text="Nickname" />
+
+    <TextView
+        android:id="@+id/repoFullNameItemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/repoImageItem"
+        app:layout_constraintStart_toStartOf="@+id/repoImageItem"
+        app:layout_constraintTop_toBottomOf="@+id/repoNicknameItemTextView"
+        tools:text="Full Name"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
