@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PullRequestActivity"
+            android:name=".pullrequest.PullRequestActivity"
             android:parentActivityName=".home.HomeActivity" />
     </application>
 

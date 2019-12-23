@@ -1,5 +1,6 @@
 package br.com.igorf91.desafio.network
 
+import br.com.igorf91.desafio.vo.PullRequestVO
 import br.com.igorf91.desafio.vo.RepositoryContainerVO
 import retrofit2.Call
 import retrofit2.http.GET
@@ -24,5 +25,5 @@ interface GithubApi {
     fun getPullRequests(
         @Path("creator") login: String,
         @Path("repository") repositoryName: String
-    )
+    ): Call<List<PullRequestVO>>
 }
