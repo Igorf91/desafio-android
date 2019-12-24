@@ -8,7 +8,7 @@ import br.com.igorf91.desafio.vo.RepositoryVO
 
 class RepositoryItemAdapter : RecyclerView.Adapter<RepositoryItemViewHolder>() {
 
-    private var repositories : List<RepositoryVO> = arrayListOf()
+    private var repositories : ArrayList<RepositoryVO> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryItemViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,7 +24,7 @@ class RepositoryItemAdapter : RecyclerView.Adapter<RepositoryItemViewHolder>() {
     }
 
     fun loadItems(newList: List<RepositoryVO>) {
-        repositories = ArrayList(newList)
+        repositories.addAll(newList)
         notifyDataSetChanged()
     }
 }

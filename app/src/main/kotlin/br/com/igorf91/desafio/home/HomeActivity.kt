@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.igorf91.desafio.R
 import br.com.igorf91.desafio.adapter.RepositoryItemAdapter
+import br.com.igorf91.desafio.util.EndlessRecyclerViewScrollListener
 import br.com.igorf91.desafio.util.RetrofitConfig.Companion.getGithubApi
 import br.com.igorf91.desafio.vo.RepositoryVO
 import kotlinx.android.synthetic.main.activity_home.homeLoader
@@ -18,6 +20,7 @@ class HomeActivity : AppCompatActivity() {
 
     private val adapter = RepositoryItemAdapter()
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,20 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         repositoriesListRecycler.adapter = adapter
-        repositoriesListRecycler.layoutManager = LinearLayoutManager(this)
+        linearLayoutManager = LinearLayoutManager(this)
+        repositoriesListRecycler.layoutManager = linearLayoutManager
+
+        val scrollListener: EndlessRecyclerViewScrollListener =
+            object : EndlessRecyclerViewScrollListener(linearLayoutManager) {
+                override fun onLoadMore(
+                    page: Int,
+                    totalItemsCount: Int,
+                    view: RecyclerView?
+                ) {
+                    homeViewModel.loadList((page + 1).toLong())
+                }
+            }
+        repositoriesListRecycler.addOnScrollListener(scrollListener)
     }
 
     private fun setupListeners() {
