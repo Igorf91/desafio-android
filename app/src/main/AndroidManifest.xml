@@ -22,9 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".pullrequest.PullRequestActivity"
-            android:parentActivityName=".home.HomeActivity" />
+        <activity android:name=".pullrequest.PullRequestActivity" />
     </application>
 
 </manifest>

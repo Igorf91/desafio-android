@@ -3,6 +3,7 @@ package br.com.igorf91.desafio.pullrequest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
@@ -41,9 +42,17 @@ class PullRequestActivity : AppCompatActivity() {
             .of(this, PullRequestViewModelFactory(PullRequestRepository(getGithubApi())))
             .get(PullRequestViewModel::class.java)
 
+        setupToolbar()
         setupRecyclerView()
         setupListeners()
         setupCall()
+    }
+
+    private fun setupToolbar() {
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.title = getRepository()?.fullName
+        }
     }
 
     private fun setupRecyclerView() {
@@ -75,6 +84,13 @@ class PullRequestActivity : AppCompatActivity() {
 
     private fun setupCall() {
         viewModel.loadPullRequest(getRepository())
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home)
+            onBackPressed()
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun getRepository() = intent.getParcelableExtra<RepositoryVO>(EXTRA_DATA)
