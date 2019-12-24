@@ -63,4 +63,14 @@
     tools:text="Full name"
     tools:visibility="visible" />
 
+  <TextView
+      android:id="@+id/prCreatedAtItem"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/prNicknameItem"
+      app:layout_constraintTop_toBottomOf="@+id/prDescriptionItem"
+      tools:text="11-11-2019"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

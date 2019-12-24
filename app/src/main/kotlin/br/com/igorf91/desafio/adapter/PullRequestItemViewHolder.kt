@@ -8,6 +8,7 @@ import br.com.igorf91.desafio.util.loadImage
 import br.com.igorf91.desafio.vo.PullRequestVO
 import kotlinx.android.synthetic.main.pull_request_list_item.view.prDescriptionItem
 import kotlinx.android.synthetic.main.pull_request_list_item.view.prImageItem
+import kotlinx.android.synthetic.main.pull_request_list_item.view.prCreatedAtItem
 import kotlinx.android.synthetic.main.pull_request_list_item.view.prNicknameItem
 import kotlinx.android.synthetic.main.pull_request_list_item.view.prTitleItem
 
@@ -16,6 +17,7 @@ class PullRequestItemViewHolder (itemView: View) : RecyclerView.ViewHolder(itemV
     private val title = itemView.prTitleItem
     private val description = itemView.prDescriptionItem
     private val nickName = itemView.prNicknameItem
+    private val createdAt = itemView.prCreatedAtItem
 
     fun bindView(item: PullRequestVO){
         prImage.loadImage(item.user.avatarUrl, itemView)
@@ -23,6 +25,7 @@ class PullRequestItemViewHolder (itemView: View) : RecyclerView.ViewHolder(itemV
         title.text = item.title
         description.text = item.body
         nickName.text = item.user.login
+        createdAt.text = item.createdAt
 
         itemView.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW).also { it.data = Uri.parse(item.url) }
