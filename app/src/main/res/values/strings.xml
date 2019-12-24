@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Desafio</string>
+  <string name="empty_pull_request_result">Sem pull requests encontradas</string>
 </resources>

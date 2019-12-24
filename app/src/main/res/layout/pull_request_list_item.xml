@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <TextView
+    android:id="@+id/prTitleItem"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:text="Titulo do repositorio" />
+
+  <TextView
+    android:id="@+id/prDescriptionItem"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:maxLines="3"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/prTitleItem"
+    tools:text="@tools:sample/lorem/random" />
+
+  <ImageView
+    android:id="@+id/prImageItem"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:contentDescription="@null"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/prDescriptionItem"
+    tools:background="@drawable/ic_image_placeholder" />
+
+  <TextView
+    android:id="@+id/prNicknameItem"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:textSize="14sp"
+    app:layout_constraintBottom_toBottomOf="@id/prImageItem"
+    app:layout_constraintStart_toEndOf="@id/prImageItem"
+    app:layout_constraintTop_toTopOf="@id/prImageItem"
+    tools:text="nickname" />
+
+  <TextView
+    android:id="@+id/prFullnameItem"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:textSize="12sp"
+    android:visibility="gone"
+    app:layout_constraintStart_toEndOf="@id/prImageItem"
+    app:layout_constraintTop_toBottomOf="@id/prNicknameItem"
+    tools:text="Full name"
+    tools:visibility="visible" />
+
+  <TextView
+      android:id="@+id/prCreatedAtItem"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/prNicknameItem"
+      app:layout_constraintTop_toBottomOf="@+id/prDescriptionItem"
+      tools:text="11-11-2019"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
